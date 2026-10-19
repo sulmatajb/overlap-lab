@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Inspect small calendar fixtures: event counts, busy time and overlapping minutes.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Overlap Lab · Calendar fixture workbench</title><link rel="stylesheet" href="assets/style.css"><script type="module" src="assets/app.mjs"></script></head>
+<body><a class="skip" href="#fixture">Skip to fixture editor</a><main>
+<header><div class="eyebrow">CALENDAR FIXTURE WORKBENCH</div><h1>Overlap Lab<span aria-hidden="true">.</span></h1><p class="intro">See how events occupy time. Inspect the edge cases, then export a fixture you can reuse.</p><p class="local">Local calculations · Synthetic examples · All results in UTC</p></header>
+<div class="workspace">
+<section class="editor panel" aria-labelledby="editor-title"><div class="section-head"><span class="step">01</span><h2 id="editor-title">Choose an edge case</h2></div>
+<div id="examples" class="examples" role="group" aria-label="Synthetic examples"></div><p id="example-note" class="note"></p>
+<form id="fixture-form"><label for="fixture">Fixture JSON</label><p id="input-help" class="help">Explicit offsets required. Up to 100 timed events, 48 elapsed hours and 64 KiB. Edit a sample, then analyze.</p>
+<textarea id="fixture" name="fixture" spellcheck="false" aria-describedby="input-help error" rows="20"></textarea>
+<div class="actions"><button type="submit" class="primary">Analyze fixture</button><button type="button" id="export" disabled>Export fixture JSON</button></div>
+<p id="error" role="alert" class="error" hidden></p><p id="status" role="status" aria-live="polite" class="status"></p></form>
+<details><summary>Input contract &amp; time rules</summary><p>Each event has a unique <code>id</code>, <code>start</code>, <code>end</code>, and optional <code>label</code>. Use ISO dates with <code>Z</code> or an explicit <code>±HH:MM</code> offset. Dates must exist; end must be later than start.</p><p>Intervals include their start and exclude their end: <code>[start, end)</code>. Events are clipped to the window. Adjacent events do not conflict. Export sorts events and converts timestamps to UTC; it preserves instants, not the original offset notation.</p><p>Offsets are supplied facts. This tool does not infer a location, daylight-saving rules, recurrence or all-day events.</p></details></section>
+<section class="analysis panel" aria-labelledby="analysis-title"><div class="section-head"><span class="step">02</span><h2 id="analysis-title">Inspect the time</h2><span class="zone">UTC</span></div>
+<div id="empty" class="empty">Analyze a fixture to see its occupied time.</div><div id="results" hidden></div></section>
+</div><footer>Built for small synthetic fixtures. No calendar connection, uploads or saved browser state. Export contains only the normalized fixture. <a href="https://github.com/sulmatajb/overlap-lab">Source &amp; MIT license</a>.</footer>
+</main></body></html>
