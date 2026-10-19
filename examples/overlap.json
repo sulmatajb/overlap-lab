@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "Overlap is elapsed time",
+  "window": {
+    "start": "2026-10-15T09:00:00Z",
+    "end": "2026-10-15T12:00:00Z"
+  },
+  "events": [
+    {
+      "id": "review",
+      "label": "Synthetic review",
+      "start": "2026-10-15T09:30:00Z",
+      "end": "2026-10-15T10:30:00Z"
+    },
+    {
+      "id": "standup",
+      "label": "Synthetic standup",
+      "start": "2026-10-15T09:45:00Z",
+      "end": "2026-10-15T10:15:00Z"
+    },
+    {
+      "id": "pairing",
+      "label": "Synthetic pairing",
+      "start": "2026-10-15T10:00:00Z",
+      "end": "2026-10-15T11:00:00Z"
+    }
+  ]
+}

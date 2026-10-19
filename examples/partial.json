@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "name": "Partial-hour meeting",
+  "window": {
+    "start": "2026-10-15T09:00:00Z",
+    "end": "2026-10-15T12:00:00Z"
+  },
+  "events": [
+    {
+      "id": "demo",
+      "label": "Synthetic demo",
+      "start": "2026-10-15T09:30:00Z",
+      "end": "2026-10-15T10:30:00Z"
+    }
+  ]
+}
